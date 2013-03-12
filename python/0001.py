@@ -1,14 +1,22 @@
 import math
 
+#######################
+# Project Euler #0001 #
+# Joseph Lee          #
+# Benjamin Lee        #
+#######################
+
+# Version 01
 @profile
-def main():
+def main01():
   sum = 0
   for i in xrange(1000):
     if i % 3 == 0 or i % 5 == 0:
       sum += i
   print sum
 
-main()
+main01()
+
 # Addendum: Multiples of 3 range from 3 to 999
 # (3+999)+(6+996)+...+(498+504)+(501)=(498/3*2+1)*501=166833
 # Multiples of 5 range from 5 to 995
