@@ -11,6 +11,6 @@ import util
 @profile
 def main01():
   # Code here
-  printAnswer()
+  util.printAnswer()
 
 main01()
