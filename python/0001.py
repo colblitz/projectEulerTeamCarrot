@@ -1,4 +1,5 @@
 import math
+import util
 
 #######################
 # Project Euler #0001 #
@@ -13,7 +14,7 @@ def main01():
   for i in xrange(1000):
     if i % 3 == 0 or i % 5 == 0:
       sum += i
-  print sum
+  printAnswer(sum)
 
 main01()
 
