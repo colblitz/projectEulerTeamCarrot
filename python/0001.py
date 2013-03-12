@@ -18,7 +18,8 @@ def main01():
 
 main01()
 
-# Addendum: Multiples of 3 range from 3 to 999
+# Addendum:
+# Multiples of 3 range from 3 to 999
 # (3+999)+(6+996)+...+(498+504)+(501)=(498/3*2+1)*501=166833
 # Multiples of 5 range from 5 to 995
 # (5+995)+(10+990)+...+(495+505)+(500)=(495/5*2+1)*500=99500
