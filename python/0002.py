@@ -20,10 +20,10 @@ def main01():
   sum = 0
 
   # 34th fibonacci is 5702887, so with their index only go to 31
-  for i in xrange(32):
+  for i in xrange(1,32,3):
     fib = f(i)
     if fib % 2 == 0:
       sum += fib
-  printAnswer(sum)
+  util.printAnswer(sum)
 
 main01()
