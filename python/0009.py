@@ -27,5 +27,6 @@ def main01():
       c = m*m + n*n
       print a, b, c
       printAnswer(a*b*c)
+      break
 
 main01()
