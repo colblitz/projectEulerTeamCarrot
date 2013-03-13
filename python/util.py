@@ -1,5 +1,7 @@
 import math
-from bitarray import bitarray
+import platform
+if platform.system()=='Linux':
+  from bitarray import bitarray
 
 # Constants
 pi = math.pi
