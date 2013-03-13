@@ -47,19 +47,35 @@ def primesBelow(n):
 '''
 
 def primeFactors(n):
-  pass
+  primes=primesBelow(n/2)
+  factors = (f for f in primes if n%f==0)
+  factorization = [(f, factorInto(n,f)) for f in factors]
+  if factorization:
+    return factorization
+  return [(n,1)]
+
+def factorInto(n,f):
+  if n%f!=0:
+    return 0
+  return 1+factorInto(n/f,f)
 
 def fibonacci(n):
   return int((phi**n - psi**n)/sqrt5)
 
 def isPrime(n):
-  pass
+  primes=primesBelow(int(math.sqrt(n))+1)
+  factors = (f for f in primes if n%f==0)
+  try:
+    next(factors)
+  except StopIteration:
+    return True
+  return False
 
-def lcd(a, b):
-  pass
+def lcd2(a, b):
+  return a*b/gcf2(a,b)
 
 def lcd(*n):
-  pass
+  return reduce(lambda x, y: lcd2(x, y), n)
 
 def gcf2(m, n):
   a = m
