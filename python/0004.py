@@ -10,7 +10,7 @@ import util
 #######################
 
 # Version 01
-#@profile
+@profile
 def main01():
   def isPalindrome(n):
     s = str(n)
@@ -30,7 +30,7 @@ def main01():
   util.printAnswer(largest)
 
 # Version 02
-#@profile
+@profile
 def main02():
   number = 600851475143
   palindromes = xrange(997,99,-1) # possible palindromes leftmost digits
