@@ -2,7 +2,7 @@ from math import *
 from util import *
 
 #######################
-# Project Euler #000x #
+# Project Euler #0007 #
 # Team Carrot:        #
 # Joseph Lee          #
 # Benjamin Lee        #
@@ -12,7 +12,9 @@ from util import *
 # Version 01
 @profile
 def main01():
+  n = 200000
+  primes = primesBelow(n)
   # Code here
-  printAnswer()
+  printAnswer(primes[10000])
 
 main01()

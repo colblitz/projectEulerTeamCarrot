@@ -12,7 +12,8 @@ from util import *
 # Version 01
 @profile
 def main01():
+  primes = primesBelow(2000000)
   # Code here
-  printAnswer()
+  printAnswer(sum(primes))
 
 main01()
