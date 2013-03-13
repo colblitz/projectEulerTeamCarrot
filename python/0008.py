@@ -1,5 +1,6 @@
 from math import *
 from util import *
+from numpy import prod
 
 #######################
 # Project Euler #0008 #
@@ -22,4 +23,16 @@ def main01():
   # Code here
   printAnswer(largest)
 
+# Version 02
+@profile
+def main02():
+  largest = 0
+  for i in xrange(len(a) - 4):
+    n = [int(a[i+j]) for j in range(5)]
+    p=prod(n)
+    largest = max(largest, p)
+  # Code here
+  printAnswer(largest)
+
 main01()
+main02()
