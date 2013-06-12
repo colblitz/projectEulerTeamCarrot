@@ -18,6 +18,15 @@ def printAnswer(s):
   print ""
   print "################################"
 
+def factorial(n):
+  if n > 1:
+    return n * factorial(n-1)
+  return 1
+
+
+def sumdigits(n):
+  return reduce(lambda x, y: int(x) + int(y), str(n))
+
 def primesBelow(n):
   # About 10s for n = 10000000
   ssize = int((n+1)/2.0)
@@ -45,6 +54,15 @@ def primesBelow(n):
     primes.append(p)
   return primes
 '''
+
+def properdivisors(n):
+  candidates = range(1, int(math.sqrt(n)) + 1)
+  lowdivisors = (d for d in candidates if n%d==0)
+  divisors = []
+  for d in lowdivisors:
+    divisors.append(d)
+    divisors.append(n/d)
+  return sorted(filter(lambda x: x != n, list(set(divisors))))
 
 def primeFactors(n):
   primes=primesBelow(n/2)
