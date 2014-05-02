@@ -71,6 +71,74 @@ numberToLetters = {
 def wordSum(s):
   return reduce(lambda x, y: x + y, [letterToNumbers[lower(c)] for c in s])
 
+numberWords = {
+    0: 'zero',
+    1: 'one',
+    2: 'two',
+    3: 'three',
+    4: 'four',
+    5: 'five',
+    6: 'six',
+    7: 'seven',
+    8: 'eight',
+    9: 'nine',
+    10: 'ten',
+    11: 'eleven',
+    12: 'twelve',
+    13: 'thirteen',
+    14: 'fourteen',
+    15: 'fifteen',
+    16: 'sixteen',
+    17: 'seventeen',
+    18: 'eighteen',
+    19: 'nineteen',
+    20: 'twenty',
+    30: 'thirty',
+    40: 'forty',
+    50: 'fifty',
+    60: 'sixty',
+    70: 'seventy',
+    80: 'eighty',
+    90: 'ninety',
+    100: 'hundred',
+    1000: 'thousand',
+    1000000: 'million',
+    1000000000: 'billion',
+    1000000000000: 'trillion'}
+
+numberWordLengths = {}
+for i in numberWords:
+  numberWordLengths[i] = len(numberWords[i])
+
+def numberWord(n):
+  if n < 21:
+    return numberWords[n]
+  elif n < 1000:
+    word = ""
+    h = n/100
+    r = n%100
+    if h > 0:
+      word += numberWords[h] + " hundred"
+      if r != 0:
+        word += " and "
+    if r > 0 and r < 20:
+      word += numberWords[r]
+    elif r > 19:
+      tens = (r/10)*10
+      ones = r%10
+      word += numberWords[tens]
+      if ones != 0:
+        word += " " + numberWords[ones]
+    return word
+  elif n == 1000:
+    return "one thousand"
+  else:
+    return ""
+
+
+def lettersForNumberWord(n):
+  return len(numberWord(n).replace(' ', ''))
+
 def printAnswer(s):
   print "##########   ANSWER   ##########"
   print ""
