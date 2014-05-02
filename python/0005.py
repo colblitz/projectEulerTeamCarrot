@@ -1,5 +1,5 @@
-import math
-import util
+from math import *
+from util import *
 
 #######################
 # Project Euler #0005 #
@@ -9,9 +9,17 @@ import util
 # Stephanie Yu        #
 #######################
 
+'''
+2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
+
+What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+'''
+
 # Version 01
 @profile
 def main01():
+  print lcdAll(xrange(2, 21))
+  printAnswer(lcd(*xrange(2, 21)))
   # Code here
   # 20 = 2^2 * 5
   # 19 = 19
@@ -34,6 +42,7 @@ def main01():
   # 2 = 2
   # 1 = 1
   # answer = 2^4 * 3^2 * 5 * 7 * 11 * 13 * 17 * 19
-  util.printAnswer(2**4 * 3**2 * 5 * 7 * 11 * 13 * 17 * 19)
+
+  #util.printAnswer(2**4 * 3**2 * 5 * 7 * 11 * 13 * 17 * 19)
 
 main01()

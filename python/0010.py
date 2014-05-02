@@ -9,6 +9,12 @@ from util import *
 # Stephanie Yu        #
 #######################
 
+'''
+The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
+
+Find the sum of all the primes below two million.
+'''
+
 # Version 01
 @profile
 def main01():

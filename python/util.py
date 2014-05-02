@@ -13,95 +13,27 @@ phi = (1.0 + sqrt5) * 0.5
 psi = 1.0 - phi
 
 letterToNumbers = {
-    'a': 1,
-    'b': 2,
-    'c': 3,
-    'd': 4,
-    'e': 5,
-    'f': 6,
-    'g': 7,
-    'h': 8,
-    'i': 9,
-    'j': 10,
-    'k': 11,
-    'l': 12,
-    'm': 13,
-    'n': 14,
-    'o': 15,
-    'p': 16,
-    'q': 17,
-    'r': 18,
-    's': 19,
-    't': 20,
-    'u': 21,
-    'v': 22,
-    'w': 23,
-    'x': 24,
-    'y': 25,
+    'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5, 'f': 6, 'g': 7, 'h': 8, 'i': 9,
+    'j': 10, 'k': 11, 'l': 12, 'm': 13, 'n': 14, 'o': 15, 'p': 16, 'q': 17,
+    'r': 18, 's': 19, 't': 20, 'u': 21, 'v': 22, 'w': 23, 'x': 24, 'y': 25,
     'z': 26}
 
 numberToLetters = {
-    1: 'a',
-    2: 'b',
-    3: 'c',
-    4: 'd',
-    5: 'e',
-    6: 'f',
-    7: 'g',
-    8: 'h',
-    9: 'i',
-    10: 'j',
-    11: 'k',
-    12: 'l',
-    13: 'm',
-    14: 'n',
-    15: 'o',
-    16: 'p',
-    17: 'q',
-    18: 'r',
-    19: 's',
-    20: 't',
-    21: 'u',
-    22: 'v',
-    23: 'w',
-    24: 'x',
-    25: 'y',
+    1: 'a', 2: 'b', 3: 'c', 4: 'd', 5: 'e', 6: 'f', 7: 'g', 8: 'h', 9: 'i',
+    10: 'j', 11: 'k', 12: 'l', 13: 'm', 14: 'n', 15: 'o', 16: 'p', 17: 'q', 
+    18: 'r', 19: 's', 20: 't', 21: 'u', 22: 'v', 23: 'w', 24: 'x', 25: 'y',
     26: 'z'}
 
 def wordSum(s):
   return reduce(lambda x, y: x + y, [letterToNumbers[lower(c)] for c in s])
 
 numberWords = {
-    0: 'zero',
-    1: 'one',
-    2: 'two',
-    3: 'three',
-    4: 'four',
-    5: 'five',
-    6: 'six',
-    7: 'seven',
-    8: 'eight',
-    9: 'nine',
-    10: 'ten',
-    11: 'eleven',
-    12: 'twelve',
-    13: 'thirteen',
-    14: 'fourteen',
-    15: 'fifteen',
-    16: 'sixteen',
-    17: 'seventeen',
-    18: 'eighteen',
-    19: 'nineteen',
-    20: 'twenty',
-    30: 'thirty',
-    40: 'forty',
-    50: 'fifty',
-    60: 'sixty',
-    70: 'seventy',
-    80: 'eighty',
-    90: 'ninety',
-    100: 'hundred',
-    1000: 'thousand',
+    0: 'zero', 1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six', 
+    7: 'seven', 8: 'eight', 9: 'nine', 10: 'ten', 11: 'eleven', 12: 'twelve', 
+    13: 'thirteen', 14: 'fourteen', 15: 'fifteen', 16: 'sixteen', 17: 'seventeen', 
+    18: 'eighteen', 19: 'nineteen', 20: 'twenty', 30: 'thirty', 40: 'forty',
+    50: 'fifty', 60: 'sixty', 70: 'seventy', 80: 'eighty', 90: 'ninety',
+    100: 'hundred', 1000: 'thousand',
     1000000: 'million',
     1000000000: 'billion',
     1000000000000: 'trillion'}
@@ -232,6 +164,22 @@ def gcf2(m, n):
     a = t
   return a
 
+def gcfAll(numbers):
+  sanity = max(numbers) - min(numbers)
+  workingSet = numbers
+  z = min([x for x in workingSet if x != 0])
+  while True:
+    sanity -= 1
+    z = min([x for x in workingSet if x != 0])
+    workingSet = [x for x in workingSet if x != z]
+    remainders = [x % z for x in workingSet]
+    if sum(remainders) == 0:
+      break
+    if sanity == 0:
+      print "something probably went wrong, gcfAll of ", numbers
+      break
+    workingSet = remainders + [z]
+  return z
+
 def gcf(*n):
   return reduce(lambda x, y: gcf2(x, y), n)
-
