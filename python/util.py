@@ -78,8 +78,11 @@ def printAnswer(s):
   print ""
   print "################################"
 
+factorials = [1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 3628800]
 def factorial(n):
-  if n > 1:
+  if n >= 0 and n <= 10:
+    return factorials[n]
+  if n > 10:
     return n * factorial(n-1)
   return 1
 
