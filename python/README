@@ -1,0 +1,5 @@
+to start on new problem:
+cp template.py xxxx.py
+
+to run:
+./profile.sh xxxx
