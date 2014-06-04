@@ -144,6 +144,8 @@ def fibonacci(n):
   return int((phi**n - psi**n)/sqrt5)
 
 def isPrime(n):
+  if n in (2, 3, 5, 7, 11):
+    return True
   primes=primesBelow(int(math.sqrt(n))+1)
   factors = (f for f in primes if n%f==0)
   try:
@@ -186,3 +188,37 @@ def gcfAll(numbers):
 
 def gcf(*n):
   return reduce(lambda x, y: gcf2(x, y), n)
+
+def order(a, b):
+  if gcf(a, b) != 1:
+    return 0
+  t = 1
+  i = 0
+  while True:
+    t = (t*a) % b
+    i += 1
+    if t == 1:
+      break
+    if i == b:
+      return 0
+  return i
+
+def periodOfReciprocal(n):
+  if n == 1:
+    return 0
+  if isPrime(n):
+    return order(10, n)
+  if gcf(n, 10) == 1:
+    factors = []
+    for f in primeFactors(n):
+      if f[0] in (3, 487, 56598313):
+        factors.append(periodOfReciprocal(f[0]))
+      else:
+        factors.append(f[0]**(f[1]-1) * periodOfReciprocal(f[0]))
+    return lcd(*factors)
+  if n % 2 == 0:
+    return periodOfReciprocal(n/2)
+  return periodOfReciprocal(n/5)
+
+for i in xrange(1, 50):
+  print 1.0/i, "-", periodOfReciprocal(i)
