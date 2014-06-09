@@ -220,5 +220,3 @@ def periodOfReciprocal(n):
     return periodOfReciprocal(n/2)
   return periodOfReciprocal(n/5)
 
-for i in xrange(1, 50):
-  print 1.0/i, "-", periodOfReciprocal(i)
