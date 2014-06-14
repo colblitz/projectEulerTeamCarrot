@@ -67,6 +67,16 @@ def numberWord(n):
   else:
     return ""
 
+def listToTuples(a):
+  if type(a) is list:
+    try:
+      return tuple([listToTuples(x) for x in a])
+    except TypeError:
+      return a
+  return a
+
+def sortTuple(a):
+  return listToTuples(sorted(list(a)))
 
 def lettersForNumberWord(n):
   return len(numberWord(n).replace(' ', ''))
@@ -86,11 +96,24 @@ def factorial(n):
     return n * factorial(n-1)
   return 1
 
+def getDigits(n):
+  digits = []
+  while n > 0:
+    digits.append(n%10)
+    n = n / 10
+  return digits
+
+def getDigits2(n):
+  return list(str(n))
 
 def sumdigits(n):
   return reduce(lambda x, y: int(x) + int(y), str(n))
 
 def primesBelow(n):
+  if n == 1:
+    return []
+  if n == 2:
+    return [2]
   # About 10s for n = 10000000
   ssize = int((n+1)/2.0)
   sieve = bitarray(ssize) # represents [1, 3, 5... ]
@@ -130,10 +153,10 @@ def properdivisors(n):
 def primeFactors(n):
   primes=primesBelow(n/2)
   factors = (f for f in primes if n%f==0)
-  factorization = [(f, factorInto(n,f)) for f in factors]
+  factorization = [[f, factorInto(n,f)] for f in factors]
   if factorization:
     return factorization
-  return [(n,1)]
+  return [[n,1]]
 
 def factorInto(n,f):
   if n%f!=0:
@@ -220,3 +243,5 @@ def periodOfReciprocal(n):
     return periodOfReciprocal(n/2)
   return periodOfReciprocal(n/5)
 
+def isPalindrome(s):
+  return s == s[::-1]

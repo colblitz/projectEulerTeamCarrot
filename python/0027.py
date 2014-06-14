@@ -35,6 +35,6 @@ def main01():
         newpairs.append(p)
     pairs = newpairs
     n += 1
-  printAnswer(pairs[0])
+  printAnswer(pairs[0][0] * pairs[0][1])
 
 main01()
